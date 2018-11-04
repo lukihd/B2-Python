@@ -1,4 +1,4 @@
-#!/usr/bin/python3.6
+#!/usr/bin/python3.7
 # nom : 1d-mol.py
 # auteur : lucas Erisset
 # date : 23/10/18
@@ -6,6 +6,7 @@
 
 import re
 import random
+import signal
 
 def restart ():
     restartValue = input("Voulez vous rejouer oui(o)/non(n) : ")
@@ -31,6 +32,13 @@ def checkExit (valueToCheck):
     if valueToCheck == "q" or valueToCheck == "Q":
         print ("Au revoir, la solution était : " + str(intToFind))
         return exit()
+
+def checkSignal(sig, frame):
+        print ("Au revoir, la solution était : " + str(intToFind))
+        return exit()
+
+signal.signal(signal.SIGINT, checkSignal)
+signal.signal(signal.SIGTERM, checkSignal)
 
 restartGame = True
 
