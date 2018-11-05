@@ -44,7 +44,6 @@ restartGame = True
 
 while restartGame == True:
     intToFind = random.randint(0, 100)
-    print(intToFind)
 
     inputUsr = input("Entrez un chiffre entre 0 et 100 : ")
     checkExit(inputUsr)
