@@ -39,7 +39,7 @@ def checkExit(valueToCheck):
 
 def WriteIn(valueToSend):
     fileTxt = open("mol.txt", "w")
-    fileTxt.write(valueToSend)
+    print(valueToSend, fileTxt)
     fileTxt.close()
 
 
