@@ -1,0 +1,1 @@
+Vous devez entrer un chiffre entre 0 et 100 (pas des lettres ou autres) : 

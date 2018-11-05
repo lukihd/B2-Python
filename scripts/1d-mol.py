@@ -1,4 +1,4 @@
-#!/usr/bin/python3.7
+#!/usr/bin/env python3
 # nom : 1d-mol.py
 # auteur : lucas Erisset
 # date : 23/10/18
