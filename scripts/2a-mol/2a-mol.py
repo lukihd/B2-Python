@@ -8,17 +8,6 @@ import re
 import random
 import signal
 
-# recommencer le jeu a la fin de la partie
-def restart():
-    WriteIn("Voulez vous rejouer oui(o)/non(n) : ")
-    restartValue = ReadIn()
-    if restartValue is "o" or restartValue is "O":
-        return True
-    elif restartValue is "n" or restartValue is "N":
-        return False
-    else:
-        return WriteIn("Va te payer un café au lieu de tout casser")
-
 # regex pour vérifier un int
 def checkType(valueToCheck):
     if re.match('^[0-9]+$', valueToCheck):
@@ -26,7 +15,7 @@ def checkType(valueToCheck):
         if valueToCheck > 100:
             return False
         else:
-            return True
+            return valueToCheck
     else:
         return False
 
@@ -58,32 +47,23 @@ def checkSignal(sig, frame):
 signal.signal(signal.SIGINT, checkSignal)
 signal.signal(signal.SIGTERM, checkSignal)
 
-restartGame = True
-
 # le jeu
-while restartGame == True:
-    intToFind = random.randint(0, 100)
-    intToFind
-    print(intToFind)
+intToFind = random.randint(0, 100)
+print(intToFind)
 
-    WriteIn("Vous allez commencer à jouer au 'plus ou moins', bonne chance ! Entrez un chiffre entre 0 et 100 : ")
+stop = False
+WriteIn("bienvenu")
+while stop is False:
     usrValue = ReadIn()
-    print(type(usrValue))
-    checkExit(usrValue)
+    usrValue = checkType(usrValue)
 
-    while usrValue != intToFind:
-
-        while checkType(usrValue) == False:
-            WriteIn("Vous devez entrer un chiffre entre 0 et 100 (pas des lettres ou autres) : ")
-            usrValue = ReadIn()
-            checkExit(usrValue)
-
-            if int(usrValue) > intToFind:
-                WriteIn("moins")
-                ReadIn()
-            elif int(usrValue) < intToFind:
-                WriteIn("plus")
-                ReadIn()
-
-    print("Vous avez gagné !")
-    restartGame = restart()
+    if usrValue < intToFind:
+        WriteIn("plus")
+        usrValue = checkType(ReadIn())
+    elif usrValue > intToFind:
+        WriteIn("moins")
+        usrValue = checkType(ReadIn())
+    else:
+        stop = True    
+   
+print("Vous avez gagné !")
