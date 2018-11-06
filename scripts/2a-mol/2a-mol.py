@@ -33,13 +33,13 @@ def checkType(valueToCheck):
 # verification de la sortie du script
 def checkExit(valueToCheck):
     if valueToCheck == "q" or valueToCheck == "Q":
-        print("Au revoir, la solution était : " + str(intToFind))
+        WriteIn("Au revoir, la solution était : " + str(intToFind))
         return exit()
 
 # ecris dans le document cible la valeur en parametre
 def WriteIn(valueToSend):
     fileTxt = open("mol.txt", "w")
-    print(valueToSend, fileTxt)
+    fileTxt.write(valueToSend)
     fileTxt.close()
 
 # lis le document cible
@@ -63,11 +63,12 @@ restartGame = True
 # le jeu
 while restartGame == True:
     intToFind = random.randint(0, 100)
-    str(intToFind)
+    intToFind
     print(intToFind)
 
     WriteIn("Vous allez commencer à jouer au 'plus ou moins', bonne chance ! Entrez un chiffre entre 0 et 100 : ")
     usrValue = ReadIn()
+    print(type(usrValue))
     checkExit(usrValue)
 
     while usrValue != intToFind:
@@ -77,10 +78,10 @@ while restartGame == True:
             usrValue = ReadIn()
             checkExit(usrValue)
 
-            if usrValue > intToFind:
+            if int(usrValue) > intToFind:
                 WriteIn("moins")
                 ReadIn()
-            elif usrValue < intToFind:
+            elif int(usrValue) < intToFind:
                 WriteIn("plus")
                 ReadIn()
 
