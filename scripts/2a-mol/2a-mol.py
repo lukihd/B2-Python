@@ -63,6 +63,7 @@ restartGame = True
 # le jeu
 while restartGame == True:
     intToFind = random.randint(0, 100)
+    str(intToFind)
     print(intToFind)
 
     WriteIn("Vous allez commencer à jouer au 'plus ou moins', bonne chance ! Entrez un chiffre entre 0 et 100 : ")
