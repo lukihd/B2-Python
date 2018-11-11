@@ -7,6 +7,7 @@
 import re
 import random
 import signal
+from time import sleep
 
 # regex pour vérifier un int
 def checkType(valueToCheck):
@@ -15,7 +16,7 @@ def checkType(valueToCheck):
         if valueToCheck > 100:
             return False
         else:
-            return valueToCheck
+            return True
     else:
         return False
 
@@ -52,18 +53,25 @@ intToFind = random.randint(0, 100)
 print(intToFind)
 
 stop = False
-WriteIn("bienvenu")
-while stop is False:
-    usrValue = ReadIn()
-    usrValue = checkType(usrValue)
 
-    if usrValue < intToFind:
-        WriteIn("plus")
-        usrValue = checkType(ReadIn())
-    elif usrValue > intToFind:
-        WriteIn("moins")
-        usrValue = checkType(ReadIn())
+WriteIn("bienvenu")
+
+while stop is False:
+    sleep(1)    
+    usrValue = ReadIn()
+    checkExit(usrValue)
+
+    if checkType(usrValue) is False:
+            print("not a number")
+            continue
     else:
-        stop = True    
-   
-print("Vous avez gagné !")
+        usrValue = int(usrValue)
+
+        if usrValue < intToFind:
+                WriteIn("plus")
+        elif usrValue > intToFind:
+                WriteIn("moins")
+        else:
+                stop = True    
+
+WriteIn("Vous avez gagne !")
