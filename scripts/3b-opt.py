@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# nom : 3a-save.py
+# nom : 3b-opt.py
 # auteur : lucas Erisset
 # date : 11/11/18
-# Script permettant de save un dossier predefini dans une archive et le déplace
+# Script en complément du précedent
 
 import shutil
 import os
@@ -36,9 +36,9 @@ signal.signal(signal.SIGINT, checkSignal)
 signal.signal(signal.SIGTERM, checkSignal)
 
 # variables
-toArchiveDirectory = "D:/Github/B2-Python"
-archiveName = os.path.expanduser("~/B2-Pyton")
-dataDirectory = os.path.expanduser("~/Data/")
+toArchiveDirectory = input("indiquez le.s répertoire.s à compresser :\n")
+archiveName = input("entrez le nom de.s archive.s :\n")
+dataDirectory = input("indiquez le répertoire de destination :\n")
 
 # on verifie les droits utilisateurs sur la destination
 if os.access(toArchiveDirectory, os.R_OK and os.W_OK):
