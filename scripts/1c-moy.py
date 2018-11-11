@@ -46,4 +46,4 @@ moyenne = score_total/quotient
 moyenne =  str(moyenne)
 print("la moyenne est de "+moyenne)
 
-Top5(dict_score)
+#Top5(dict_score)
