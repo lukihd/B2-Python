@@ -1,7 +1,7 @@
 #B2-Python
 
-bonjour voici mon repository Python
+bonjour voici mon repository Python où tu trouveras tout les scripts que j'ai fait. J'ai fais de mon mieux j'espère que tu galèrera pas avec mes scripts.
 
-- liste 1
-- liste 2
-- liste 3
+Cordialement,
+lucas Erisset
+
