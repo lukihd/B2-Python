@@ -82,7 +82,7 @@ for archDirect, archName, dataDirect in zip(toArchiveDirectory, archiveName, dat
             shutil.make_archive(archName, "gztar", archDirect)
             
             # on vérifie l'espace sur la cible (user/)
-            if checkSpace(archName, "d:/"):
+            if checkSpace(archName, "/home"):
 
                 if os.path.exists(dataDirect + archName + ".tar.gz"):
                     with gzip.open(dataDirect + archName + ".tar.gz") as file:
