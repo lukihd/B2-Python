@@ -30,12 +30,14 @@ def ValueToReturn(valueFile, valueTest, valueMax, valueMin):
     valueTest = round((valueMax + valueMin)/2)
     return valueTest
 
+# variables
 solution = "Vous avez gagne !"
 valueInFile = ""
 testInt = randint(0, 100)
 testMax = 100
 testMin = 0
 
+# "l'ia"
 while valueInFile != solution:
     print(testInt)
     WriteIn(str(testInt))

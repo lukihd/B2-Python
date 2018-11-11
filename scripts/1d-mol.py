@@ -8,6 +8,7 @@ import re
 import random
 import signal
 
+# fonctions
 def restart ():
     restartValue = input("Voulez vous rejouer oui(o)/non(n) : ")
     if restartValue is "o" or restartValue is "O":
@@ -17,7 +18,7 @@ def restart ():
     else:
         return print("Va te payer un café au lieu de tout casser") 
 
-
+# on verifie avec la regex si la valeur est un entier 
 def checkType (valueToCheck):
     if re.match('^[0-9]+$', valueToCheck):
         valueToCheck = int(valueToCheck)
@@ -28,11 +29,13 @@ def checkType (valueToCheck):
     else:
         return False
 
+# quiter proprement
 def checkExit (valueToCheck):
     if valueToCheck == "q" or valueToCheck == "Q":
         print ("Au revoir, la solution était : " + str(intToFind))
         return exit()
 
+# interception des signaux (ctrl-c)
 def checkSignal(sig, frame):
         print ("Au revoir, la solution était : " + str(intToFind))
         return exit()
@@ -40,6 +43,7 @@ def checkSignal(sig, frame):
 signal.signal(signal.SIGINT, checkSignal)
 signal.signal(signal.SIGTERM, checkSignal)
 
+# le jeu
 restartGame = True
 
 while restartGame == True:
